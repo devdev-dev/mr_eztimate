@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/eztimate-quick/eztimate-quick.iml" filepath="$PROJECT_DIR$/eztimate-quick/eztimate-quick.iml" />
+      <module fileurl="file://$PROJECT_DIR$/home/home.iml" filepath="$PROJECT_DIR$/home/home.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/mr_eztimate.iml" filepath="$PROJECT_DIR$/.idea/mr_eztimate.iml" />
+    </modules>
+  </component>
+</project>
