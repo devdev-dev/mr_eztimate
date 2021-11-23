@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 
-const { EZTIMATE_URL } = process.env
+const { EZTIMATE_QUICK_URL } = process.env
 
 module.exports = {
   reactStrictMode: true,  
@@ -12,11 +12,11 @@ module.exports = {
       },
       {
         source: '/eztimate',
-        destination: `${EZTIMATE_URL}/eztimate`,
+        destination: `${EZTIMATE_QUICK_URL}/eztimate`,
       },
       {
         source: '/eztimate/:path*',
-        destination: `${EZTIMATE_URL}/eztimate/:path*`,
+        destination: `${EZTIMATE_QUICK_URL}/eztimate/:path*`,
       },
     ]
   },
