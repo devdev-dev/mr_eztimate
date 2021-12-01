@@ -1,0 +1,17 @@
+overwrite: true
+schema: ./server/graphql/schema.graphql
+documents: './**/*.graphql'
+generates:
+  ./generated/graphql.tsx:
+    config:
+      contextType: ../server/graphql/models#ResolverContext
+      namingConvention:
+        enumValues: "change-case#upperCase"
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-react-apollo"
+      - "typescript-resolvers"
+  ./generated/graphql.schema.json:
+    plugins:
+      - "introspection"
