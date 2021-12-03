@@ -4,6 +4,18 @@ query GetUser($id: ID!) {
     }
 }
 
+mutation CreateUser($input: UserInput!) {
+    createActiveUser(input: $input) {
+        ...UserFields
+    }
+}
+
+mutation UpdateUser($input: UserInput!) {
+    updateActiveUser(input: $input) {
+        ...UserFields
+    }
+}
+
 fragment UserFields on User {
     _id
     name

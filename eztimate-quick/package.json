@@ -9,6 +9,7 @@
     "codegen": "graphql-codegen --config codegen.yml"
   },
   "dependencies": {
+    "@apollo/client": "^3.5.5",
     "@types/graphql": "^14.5.0",
     "@types/mongodb": "^4.0.7",
     "apollo-server-micro": "^3.5.0",

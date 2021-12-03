@@ -20,7 +20,13 @@ export type Scalars = {
 
 export type Mutation = {
   __typename?: 'Mutation';
+  createActiveUser?: Maybe<User>;
   updateActiveUser?: Maybe<User>;
+};
+
+
+export type MutationCreateActiveUserArgs = {
+  input: UserInput;
 };
 
 
@@ -57,6 +63,20 @@ export type GetUserQueryVariables = Exact<{
 
 
 export type GetUserQuery = { __typename?: 'Query', getUser?: { __typename?: 'User', _id: string, name?: string | null | undefined, email?: string | null | undefined, avatar?: string | null | undefined } | null | undefined };
+
+export type CreateUserMutationVariables = Exact<{
+  input: UserInput;
+}>;
+
+
+export type CreateUserMutation = { __typename?: 'Mutation', createActiveUser?: { __typename?: 'User', _id: string, name?: string | null | undefined, email?: string | null | undefined, avatar?: string | null | undefined } | null | undefined };
+
+export type UpdateUserMutationVariables = Exact<{
+  input: UserInput;
+}>;
+
+
+export type UpdateUserMutation = { __typename?: 'Mutation', updateActiveUser?: { __typename?: 'User', _id: string, name?: string | null | undefined, email?: string | null | undefined, avatar?: string | null | undefined } | null | undefined };
 
 export type UserFieldsFragment = { __typename?: 'User', _id: string, name?: string | null | undefined, email?: string | null | undefined, avatar?: string | null | undefined };
 
@@ -103,6 +123,72 @@ export function useGetUserLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<Ge
 export type GetUserQueryHookResult = ReturnType<typeof useGetUserQuery>;
 export type GetUserLazyQueryHookResult = ReturnType<typeof useGetUserLazyQuery>;
 export type GetUserQueryResult = Apollo.QueryResult<GetUserQuery, GetUserQueryVariables>;
+export const CreateUserDocument = gql`
+    mutation CreateUser($input: UserInput!) {
+  createActiveUser(input: $input) {
+    ...UserFields
+  }
+}
+    ${UserFieldsFragmentDoc}`;
+export type CreateUserMutationFn = Apollo.MutationFunction<CreateUserMutation, CreateUserMutationVariables>;
+
+/**
+ * __useCreateUserMutation__
+ *
+ * To run a mutation, you first call `useCreateUserMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCreateUserMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [createUserMutation, { data, loading, error }] = useCreateUserMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useCreateUserMutation(baseOptions?: Apollo.MutationHookOptions<CreateUserMutation, CreateUserMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<CreateUserMutation, CreateUserMutationVariables>(CreateUserDocument, options);
+      }
+export type CreateUserMutationHookResult = ReturnType<typeof useCreateUserMutation>;
+export type CreateUserMutationResult = Apollo.MutationResult<CreateUserMutation>;
+export type CreateUserMutationOptions = Apollo.BaseMutationOptions<CreateUserMutation, CreateUserMutationVariables>;
+export const UpdateUserDocument = gql`
+    mutation UpdateUser($input: UserInput!) {
+  updateActiveUser(input: $input) {
+    ...UserFields
+  }
+}
+    ${UserFieldsFragmentDoc}`;
+export type UpdateUserMutationFn = Apollo.MutationFunction<UpdateUserMutation, UpdateUserMutationVariables>;
+
+/**
+ * __useUpdateUserMutation__
+ *
+ * To run a mutation, you first call `useUpdateUserMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUpdateUserMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [updateUserMutation, { data, loading, error }] = useUpdateUserMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useUpdateUserMutation(baseOptions?: Apollo.MutationHookOptions<UpdateUserMutation, UpdateUserMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<UpdateUserMutation, UpdateUserMutationVariables>(UpdateUserDocument, options);
+      }
+export type UpdateUserMutationHookResult = ReturnType<typeof useUpdateUserMutation>;
+export type UpdateUserMutationResult = Apollo.MutationResult<UpdateUserMutation>;
+export type UpdateUserMutationOptions = Apollo.BaseMutationOptions<UpdateUserMutation, UpdateUserMutationVariables>;
 
 
 export type ResolverTypeWrapper<T> = Promise<T> | T;
@@ -193,6 +279,7 @@ export type ResolversParentTypes = {
 };
 
 export type MutationResolvers<ContextType = ResolverContext, ParentType extends ResolversParentTypes['Mutation'] = ResolversParentTypes['Mutation']> = {
+  createActiveUser?: Resolver<Maybe<ResolversTypes['User']>, ParentType, ContextType, RequireFields<MutationCreateActiveUserArgs, 'input'>>;
   updateActiveUser?: Resolver<Maybe<ResolversTypes['User']>, ParentType, ContextType, RequireFields<MutationUpdateActiveUserArgs, 'input'>>;
 };
 

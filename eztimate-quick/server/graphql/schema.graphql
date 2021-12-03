@@ -10,6 +10,7 @@ type User {
 }
 
 type Mutation {
+    createActiveUser(input: UserInput!): User
     updateActiveUser(input: UserInput!): User
 }
 
