@@ -4,7 +4,7 @@ documents: './**/*.graphql'
 generates:
   ./src/generated/graphql.tsx:
     config:
-      contextType: ../src/server/graphql/models#ResolverContext
+      contextType: ../server/graphql/models#ResolverContext
       namingConvention:
         enumValues: "change-case#upperCase"
     plugins:
