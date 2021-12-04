@@ -2,10 +2,13 @@
   "name": "eztimate",
   "private": true,
   "scripts": {
+    "predev": "npm run codegen",
     "dev": "next dev -p 4000",
+    "prebuild": "npm run codegen",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "prettier": "npx prettier --write \"**/*.{ts,tsx,css,json,js,jsx}\"",
     "codegen": "graphql-codegen --config codegen.yml"
   },
   "dependencies": {
