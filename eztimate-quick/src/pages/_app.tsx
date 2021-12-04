@@ -1,6 +1,8 @@
 import '../styles/globals.css'
 import {ApolloClient, ApolloProvider, InMemoryCache} from "@apollo/client";
+import { ChakraProvider } from '@chakra-ui/react'
 import type { AppProps } from 'next/app'
+import theme from "../styles/theme";
 
 export const apolloClient = new ApolloClient({
   uri: '/eztimate/api/graphql',
@@ -9,7 +11,13 @@ export const apolloClient = new ApolloClient({
 });
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <ApolloProvider client={apolloClient}><Component {...pageProps} /></ApolloProvider>
+  return (
+      <ChakraProvider theme={theme} resetCSS>
+        <ApolloProvider client={apolloClient}>
+          <Component {...pageProps} />
+        </ApolloProvider>
+      </ChakraProvider>
+  )
 }
 
 export default MyApp
