@@ -1,4 +1,3 @@
-import '../styles/globals.css';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import { ChakraProvider } from '@chakra-ui/react';
 import { NextPage } from 'next';

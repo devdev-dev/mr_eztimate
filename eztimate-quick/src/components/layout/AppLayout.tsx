@@ -149,12 +149,12 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
       justifyContent={{ base: 'space-between', md: 'flex-end' }}
       {...rest}
     >
-      <IconButton display={{ base: 'flex', md: 'none' }} onClick={onOpen} variant="outline" aria-label="open menu" icon={<FiMenu />} />
-
-      <Text display={{ base: 'flex', md: 'none' }} fontSize="2xl" fontFamily="monospace" fontWeight="bold">
-        Logo
-      </Text>
-
+      <Flex>
+        <Text mx={{ base: '4' }} display={{ base: 'flex', md: 'none' }} fontSize="2xl" fontFamily="monospace" fontWeight="bold">
+          Logo
+        </Text>
+        <IconButton display={{ base: 'flex', md: 'none' }} onClick={onOpen} variant="outline" aria-label="open menu" icon={<FiMenu />} />
+      </Flex>
       <HStack spacing={{ base: '0', md: '6' }}>
         <IconButton size="lg" variant="ghost" aria-label="open menu" icon={<FiBell />} />
         <IconButton size="lg" variant="ghost" aria-label="open menu" icon={colorMode === 'light' ? <FiMoon /> : <FiSun />} onClick={toggleColorMode} />
