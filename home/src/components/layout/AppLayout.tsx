@@ -39,7 +39,7 @@ export default function AppLayout({ children }: AppLayoutProps) {
   return (
     <Box minH="100vh" bg={useColorModeValue('gray.100', 'gray.900')}>
       <MobileNav />
-      <Box p="4">{children}</Box>
+      <Box>{children}</Box>
     </Box>
   );
 }
