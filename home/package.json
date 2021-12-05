@@ -2,21 +2,30 @@
   "name": "home",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 3000",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prettier": "npx prettier --write \"**/*.{ts,tsx,css,json,js,jsx}\""
   },
   "dependencies": {
+    "@chakra-ui/react": "^1.7.2",
+    "@emotion/react": "^11.7.0",
+    "@emotion/styled": "^11.6.0",
+    "@supabase/supabase-js": "^1.28.5",
+    "framer-motion": "^4.1.17",
     "next": "12.0.4",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-icons": "^4.3.1"
   },
   "devDependencies": {
     "@types/node": "16.11.10",
     "@types/react": "17.0.36",
     "eslint": "7.32.0",
     "eslint-config-next": "12.0.4",
+    "eslint-config-prettier": "^8.3.0",
+    "prettier": "2.5.1",
     "typescript": "4.5.2"
   }
 }
