@@ -2,6 +2,7 @@ import {
   Avatar,
   Box,
   BoxProps,
+  Button,
   CloseButton,
   Drawer,
   DrawerContent,
@@ -22,6 +23,7 @@ import {
   useDisclosure,
   VStack
 } from '@chakra-ui/react';
+import NextLink from 'next/link';
 import * as React from 'react';
 import { ReactText } from 'react';
 import { IconType } from 'react-icons';
@@ -78,9 +80,11 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
       {...rest}
     >
       <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
-        <Text fontSize="2xl" fontFamily="monospace" fontWeight="bold">
-          Logo
-        </Text>
+        <NextLink href="/" passHref>
+          <Button ml={{ base: '4' }} fontSize="2xl" fontFamily="monospace" fontWeight="bold">
+            Eztimate App
+          </Button>
+        </NextLink>
         <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} />
       </Flex>
       {LinkItems.map(link => (

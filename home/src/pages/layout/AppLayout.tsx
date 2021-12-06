@@ -1,4 +1,5 @@
-import { Box, Flex, HStack, IconButton, Text, useColorMode, useColorModeValue } from '@chakra-ui/react';
+import { Box, Button, Flex, HStack, IconButton, useColorMode, useColorModeValue } from '@chakra-ui/react';
+import NextLink from 'next/link';
 import * as React from 'react';
 import { IconType } from 'react-icons';
 import { FiCompass, FiHome, FiMoon, FiSettings, FiStar, FiSun, FiTrendingUp } from 'react-icons/fi';
@@ -41,9 +42,11 @@ const MobileNav = () => {
       borderBottomColor={useColorModeValue('gray.200', 'gray.700')}
       justifyContent={{ base: 'space-between' }}
     >
-      <Text ml={{ base: '4' }} fontSize="2xl" fontFamily="monospace" fontWeight="bold">
-        Logo
-      </Text>
+      <NextLink href="/" passHref>
+        <Button ml={{ base: '4' }} fontSize="2xl" fontFamily="monospace" fontWeight="bold">
+          Eztimate App
+        </Button>
+      </NextLink>
 
       <HStack spacing={{ base: '0', md: '6' }}>
         <IconButton size="lg" variant="ghost" aria-label="open menu" icon={colorMode === 'light' ? <FiMoon /> : <FiSun />} onClick={toggleColorMode} />
