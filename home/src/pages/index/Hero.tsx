@@ -1,4 +1,5 @@
 import { Box, Button, createIcon, Heading, Icon, Stack, Text, useColorModeValue } from '@chakra-ui/react';
+import NextLink from 'next/link';
 
 export default function Hero() {
   return (
@@ -11,26 +12,30 @@ export default function Hero() {
       </Heading>
       <Text color={'gray.500'}>Eztimate enables your team to estimate your stories and issues together remotely. </Text>
       <Stack direction={'column'} spacing={3} align={'center'} alignSelf={'center'} position={'relative'} py={{ base: 4 }}>
-        <Button
-          colorScheme={'green'}
-          bg={'green.400'}
-          rounded={'full'}
-          px={6}
-          _hover={{
-            bg: 'green.500'
-          }}
-        >
-          Get Started
-        </Button>
-        <Button variant={'link'} colorScheme={'blue'} size={'sm'}>
-          Already registered? Login.
-        </Button>
+        <NextLink href="/signup" passHref>
+          <Button
+            colorScheme={'green'}
+            bg={'green.400'}
+            rounded={'full'}
+            px={6}
+            _hover={{
+              bg: 'green.500'
+            }}
+          >
+            Get Started
+          </Button>
+        </NextLink>
         <Box>
           <Icon as={Arrow} color={useColorModeValue('gray.800', 'gray.300')} w={100} position={'absolute'} right={-71} top={'15px'} />
           <Text fontSize={'lg'} fontFamily={'Caveat'} position={'absolute'} right={'-125px'} top={'-15px'} transform={'rotate(10deg)'}>
             Pay what you want $/mo
           </Text>
         </Box>
+        <NextLink href="/login" passHref>
+          <Button variant={'link'} colorScheme={'blue'} size={'sm'}>
+            Already registered? Login.
+          </Button>
+        </NextLink>
       </Stack>
     </Stack>
   );
