@@ -1,8 +1,8 @@
 import Head from 'next/head';
 import React, { ReactElement } from 'react';
-import Footer from '../components/Footer';
-import Hero from '../components/Hero';
-import AppLayout from '../components/layout/AppLayout';
+import Footer from './common/Footer';
+import Hero from './index/Hero';
+import AppLayout from './layout/AppLayout';
 
 const IndexPage = () => {
   return (

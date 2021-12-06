@@ -3,6 +3,7 @@
 const { EZTIMATE_QUICK_URL } = process.env;
 
 module.exports = {
+  pageExtensions: ['page.tsx', 'page.ts', 'page.jsx', 'page.js'],
   reactStrictMode: true,
   async rewrites() {
     return [
