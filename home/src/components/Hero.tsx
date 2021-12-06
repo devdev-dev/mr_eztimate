@@ -1,42 +1,38 @@
-import { Box, Button, Container, createIcon, Heading, Icon, Stack, Text, useColorModeValue } from '@chakra-ui/react';
+import { Box, Button, createIcon, Heading, Icon, Stack, Text, useColorModeValue } from '@chakra-ui/react';
 
 export default function Hero() {
   return (
-    <>
-      <Container maxW={'4xl'}>
-        <Stack as={Box} textAlign={'center'} spacing={{ base: 6, md: 14 }} py={{ base: 10, md: 18 }}>
-          <Heading fontWeight={600} fontSize={{ base: '2xl', sm: '3xl', md: '5xl' }} lineHeight={'125%'}>
-            Improve your remote agility <br />
-            <Text as={'span'} color={'green.400'}>
-              and estimate effectively!
-            </Text>
-          </Heading>
-          <Text color={'gray.500'}>Eztimate enables your team to estimate your stories and issues together remotely. </Text>
-          <Stack direction={'column'} spacing={3} align={'center'} alignSelf={'center'} position={'relative'} py={{ base: 4 }}>
-            <Button
-              colorScheme={'green'}
-              bg={'green.400'}
-              rounded={'full'}
-              px={6}
-              _hover={{
-                bg: 'green.500'
-              }}
-            >
-              Get Started
-            </Button>
-            <Button variant={'link'} colorScheme={'blue'} size={'sm'}>
-              Already registered? Login.
-            </Button>
-            <Box>
-              <Icon as={Arrow} color={useColorModeValue('gray.800', 'gray.300')} w={100} position={'absolute'} right={-71} top={'15px'} />
-              <Text fontSize={'lg'} fontFamily={'Caveat'} position={'absolute'} right={'-125px'} top={'-15px'} transform={'rotate(10deg)'}>
-                Pay what you want $/mo
-              </Text>
-            </Box>
-          </Stack>
-        </Stack>
-      </Container>
-    </>
+    <Stack as={Box} textAlign={'center'} spacing={{ base: 6, md: 14 }} my={{ base: 2, md: 10 }} py={{ base: 10, md: 18 }}>
+      <Heading fontWeight={600} fontSize={{ base: '2xl', sm: '3xl', md: '5xl' }} lineHeight={'125%'}>
+        Improve your remote agility <br />
+        <Text as={'span'} color={'green.400'}>
+          and estimate effectively!
+        </Text>
+      </Heading>
+      <Text color={'gray.500'}>Eztimate enables your team to estimate your stories and issues together remotely. </Text>
+      <Stack direction={'column'} spacing={3} align={'center'} alignSelf={'center'} position={'relative'} py={{ base: 4 }}>
+        <Button
+          colorScheme={'green'}
+          bg={'green.400'}
+          rounded={'full'}
+          px={6}
+          _hover={{
+            bg: 'green.500'
+          }}
+        >
+          Get Started
+        </Button>
+        <Button variant={'link'} colorScheme={'blue'} size={'sm'}>
+          Already registered? Login.
+        </Button>
+        <Box>
+          <Icon as={Arrow} color={useColorModeValue('gray.800', 'gray.300')} w={100} position={'absolute'} right={-71} top={'15px'} />
+          <Text fontSize={'lg'} fontFamily={'Caveat'} position={'absolute'} right={'-125px'} top={'-15px'} transform={'rotate(10deg)'}>
+            Pay what you want $/mo
+          </Text>
+        </Box>
+      </Stack>
+    </Stack>
   );
 }
 
