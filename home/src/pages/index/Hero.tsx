@@ -1,7 +1,10 @@
 import { Box, Button, createIcon, Heading, Icon, Stack, Text, useColorModeValue } from '@chakra-ui/react';
 import NextLink from 'next/link';
+import { useOpenSignInUpScreen } from '../layout/AppLayoutContext';
 
 export default function Hero() {
+  const openLoginScreen = useOpenSignInUpScreen();
+
   return (
     <Stack as={Box} textAlign={'center'} spacing={{ base: 6, md: 14 }} my={{ base: 2, md: 10 }} py={{ base: 10, md: 18 }}>
       <Heading fontWeight={600} fontSize={{ base: '2xl', sm: '3xl', md: '5xl' }} lineHeight={'125%'}>
@@ -31,11 +34,9 @@ export default function Hero() {
             Pay what you want $/mo
           </Text>
         </Box>
-        <NextLink href="/login" passHref>
-          <Button variant={'link'} colorScheme={'blue'} size={'sm'}>
-            Already registered? Login.
-          </Button>
-        </NextLink>
+        <Button variant={'link'} colorScheme={'blue'} size={'sm'} onClick={openLoginScreen.onOpen}>
+          Already registered? Login.
+        </Button>
       </Stack>
     </Stack>
   );
