@@ -37,7 +37,7 @@ const AuthModal = () => {
           <ModalHeader>
             <TabList mb="1em">
               <Tab>Sign In</Tab>
-              <Tab>SignUp</Tab>
+              <Tab>Sign Up</Tab>
             </TabList>
           </ModalHeader>
           <ModalBody>

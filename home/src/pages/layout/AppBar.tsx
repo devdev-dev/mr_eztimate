@@ -3,7 +3,8 @@ import NextLink from 'next/link';
 import * as React from 'react';
 import { FiMoon, FiSun } from 'react-icons/fi';
 import { supabase } from '../../utils/supabase';
-import { useOpenSignInUpScreen, useSession } from './AppLayoutContext';
+import { useSession } from '../index/SessionContext';
+import { useOpenSignInUpScreen } from './AppLayoutContext';
 import AuthModal from './auth/AuthModal';
 
 const AppBar = () => {
