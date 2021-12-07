@@ -1,24 +1,25 @@
-import { Button, Checkbox, FormControl, FormLabel, Input, Stack, Tooltip, useDisclosure } from '@chakra-ui/react';
+import { Button, FormControl, FormLabel, Input, Stack } from '@chakra-ui/react';
+import { useState } from 'react';
+import { supabase } from '../../../utils/supabase';
 
 export default function SignUp() {
-  const { isOpen, onToggle } = useDisclosure();
+  const [loading, setLoading] = useState(false);
+  const [email, setEmail] = useState('');
+
+  const handleSignUp = async () => {
+    setLoading(true);
+    supabase.auth
+      .signUp({ email })
+      .then(supabase => console.log(supabase))
+      .finally(() => setLoading(false));
+  };
+
   return (
     <Stack spacing={8} mx={'auto'} maxW={'lg'}>
       <Stack spacing={4}>
         <FormControl id="email" isRequired>
-          <Stack direction={{ base: 'column', sm: 'row' }} align={'start'} justify={'space-between'}>
-            <FormLabel>Email address</FormLabel>
-            <Checkbox onChange={onToggle}>
-              <Tooltip label="You can set a password in your user preferences" openDelay={300}>
-                Use Password
-              </Tooltip>
-            </Checkbox>
-          </Stack>
-          <Input type="email" />
-        </FormControl>
-        <FormControl id="password" display={isOpen ? 'block' : 'none'}>
-          <FormLabel>Password</FormLabel>
-          <Input type="password" />
+          <FormLabel>Email address</FormLabel>
+          <Input type="email" onChange={event => setEmail(event.currentTarget.value)} />
         </FormControl>
         <Stack spacing={6}>
           <Button
@@ -27,6 +28,9 @@ export default function SignUp() {
             _hover={{
               bg: 'blue.500'
             }}
+            type="submit"
+            onClick={handleSignUp}
+            isLoading={loading}
           >
             Sign Up
           </Button>

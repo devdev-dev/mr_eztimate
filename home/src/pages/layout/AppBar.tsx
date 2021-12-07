@@ -2,12 +2,14 @@ import { Button, Flex, HStack, IconButton, useColorMode, useColorModeValue } fro
 import NextLink from 'next/link';
 import * as React from 'react';
 import { FiMoon, FiSun } from 'react-icons/fi';
-import { useOpenSignInUpScreen } from './AppLayoutContext';
+import { supabase } from '../../utils/supabase';
+import { useOpenSignInUpScreen, useSession } from './AppLayoutContext';
 import AuthModal from './auth/AuthModal';
 
 const AppBar = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   const openLoginScreen = useOpenSignInUpScreen();
+  const session = useSession();
 
   return (
     <>
@@ -27,9 +29,16 @@ const AppBar = () => {
         </NextLink>
 
         <HStack spacing={{ base: '0', md: '6' }}>
-          <Button variant={'link'} colorScheme={'blue'} size={'sm'} onClick={openLoginScreen.onOpen}>
-            Sign In / Up
-          </Button>
+          {session && (
+            <Button variant={'link'} colorScheme={'blue'} size={'sm'} onClick={() => supabase.auth.signOut()}>
+              Sign Out
+            </Button>
+          )}
+          {!session && (
+            <Button variant={'link'} colorScheme={'blue'} size={'sm'} onClick={openLoginScreen.onOpen}>
+              Sign In / Up
+            </Button>
+          )}
           <IconButton size="lg" variant="ghost" aria-label="open menu" icon={colorMode === 'light' ? <FiMoon /> : <FiSun />} onClick={toggleColorMode} />
         </HStack>
       </Flex>
