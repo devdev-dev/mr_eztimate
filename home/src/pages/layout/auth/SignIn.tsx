@@ -96,7 +96,7 @@ export default function SignIn() {
           <Stack align={'center'} mt="4" mb="8">
             <Heading fontSize={'4xl'}>Sign in to your account</Heading>
             <Text fontSize={'lg'} color={colorMode === 'dark' ? 'gray.300' : 'gray.800'}>
-              to enjoy all of our cool <Link color={'blue.400'}>features</Link> ✌️
+              No sign up needed to <Link color={'blue.400'}>get started </Link> ✌️
             </Text>
           </Stack>
           <Stack spacing={8} mx={'auto'} maxW={'lg'}>
