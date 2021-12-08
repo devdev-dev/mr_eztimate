@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "predev": "npm run codegen",
-    "dev": "next dev -p 4000",
+    "dev": "next dev -p 9092",
     "prebuild": "npm run codegen",
     "build": "next build",
     "start": "next start",
